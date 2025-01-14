@@ -69,11 +69,15 @@ const onFormSubmit = () => {
   });
 };
 
-pristine.addValidator(hashtagInput, isHashtagValid, error, 2, false);
-
-function isCommentValid (value) {
+/*function isCommentValid (value) {
   return value.length <= 140;
-}
+}*/
+
+const isCommentValid = (value) => (
+  value.length <= 140
+);
+
+pristine.addValidator(hashtagInput, isHashtagValid, error, 2, false);
 
 pristine.addValidator(commentInput, isCommentValid, 'Комментарий не должен быть длиннее 140 символов');
 
